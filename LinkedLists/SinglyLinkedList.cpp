@@ -6,6 +6,7 @@ Node::Node(int d) {
   next = nullptr;
 }
 
+// Constructor + Destructor
 SinglyLinkedList::SinglyLinkedList() {
   dummy = new Node(0);
   head = tail = nullptr;
@@ -20,6 +21,7 @@ SinglyLinkedList::~SinglyLinkedList() {
   }
 }
 
+// Core operations
 void SinglyLinkedList::append(int d) {
   Node* newNode = new Node(d);
   if (!head) {
@@ -49,4 +51,35 @@ void SinglyLinkedList::printList() const {
     curNode = curNode->next;
   }
   std::cout << "nullptr" << std::endl;
+}
+
+// Search + Find
+int SinglyLinkedList::front() const {
+    return dummy->next ? dummy->next->data : -1;
+}
+
+int SinglyLinkedList::back() const {
+    return tail ? tail->data : -1;
+}
+
+bool SinglyLinkedList::isEmpty() const {
+    return dummy->next == nullptr;
+}
+
+int SinglyLinkedList::size() const {
+    int count = 0;
+    Node* curNode = dummy->next;
+    while (curNode != nullptr) {
+        count++;
+        curNode = curNode->next;
+    }
+    return count;
+}
+
+Node* SinglyLinkedList::getHead() const {
+    return dummy->next;
+}
+
+Node* SinglyLinkedList::getTail() const {
+  return tail;
 }

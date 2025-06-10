@@ -31,6 +31,7 @@ public:
     int back() const;
     bool isEmpty() const;
     int size() const;
+    Node* getHead() const;
     Node* getTail() const;
 
     // Search + Find

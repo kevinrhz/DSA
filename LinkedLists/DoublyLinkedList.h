@@ -33,6 +33,7 @@ public:
     int back() const;
     bool isEmpty() const;
     int size() const;
+    DoublyNode* getHead() const;
     DoublyNode* getTail() const;
 
     // Search + Find

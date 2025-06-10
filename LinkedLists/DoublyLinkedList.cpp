@@ -7,6 +7,7 @@ DoublyNode::DoublyNode(int d) {
     prev = nullptr;
 }
 
+// Constructor + Destructor
 DoublyLinkedList::DoublyLinkedList() {
     dummyHead = new DoublyNode(0);
     dummyTail = new DoublyNode(0);
@@ -25,6 +26,7 @@ DoublyLinkedList::~DoublyLinkedList() {
     }
 }
 
+// Core operations
 void DoublyLinkedList::append(int d) {
     DoublyNode* newNode = new DoublyNode(d);
     if (!head) {
@@ -65,4 +67,37 @@ void DoublyLinkedList::printList() const {
         curNode = curNode->next;
     }
     std::cout << "nullptr" << std::endl;
+}
+
+// Search + Find
+int DoublyLinkedList::front() const {
+    if (dummyHead->next == dummyTail) return -1;
+    return dummyHead->next->data;
+}
+
+int DoublyLinkedList::back() const {
+    if (dummyTail->prev == dummyHead) return -1;
+    return dummyTail->prev->data;
+}
+
+bool DoublyLinkedList::isEmpty() const {
+    return dummyHead->next == dummyTail;
+}
+
+int DoublyLinkedList::size() const {
+    int count = 0;
+    DoublyNode* curNode = dummyHead->next;
+    while (curNode != dummyTail) {
+        count++;
+        curNode = curNode->next;
+    }
+    return count;
+}
+
+DoublyNode* DoublyLinkedList::getHead() const {
+    return (dummyHead->next == dummyTail) ? nullptr : dummyHead->next;
+}
+
+DoublyNode* DoublyLinkedList::getTail() const {
+    return (dummyTail->prev == dummyHead) ? nullptr : dummyTail->prev;
 }
