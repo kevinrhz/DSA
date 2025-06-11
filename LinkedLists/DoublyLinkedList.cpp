@@ -69,7 +69,7 @@ void DoublyLinkedList::printList() const {
     std::cout << "nullptr" << std::endl;
 }
 
-// Search + Find
+// Accessors
 int DoublyLinkedList::front() const {
     if (dummyHead->next == dummyTail) return -1;
     return dummyHead->next->data;
@@ -100,4 +100,77 @@ DoublyNode* DoublyLinkedList::getHead() const {
 
 DoublyNode* DoublyLinkedList::getTail() const {
     return (dummyTail->prev == dummyHead) ? nullptr : dummyTail->prev;
+}
+
+// Search + Find
+bool DoublyLinkedList::contains(int d) const {
+    DoublyNode* curNode = dummyHead->next;
+    while (curNode != dummyTail) {
+        if (curNode->data == d) return true;
+        curNode = curNode->next;
+    }
+    return false;
+}
+
+DoublyNode* DoublyLinkedList::find(int d) const {
+    DoublyNode* curNode = dummyHead->next;
+    while (curNode != dummyTail) {
+        if (curNode->data == d) return curNode;
+        curNode = curNode->next;
+    }
+    return nullptr;
+}
+
+// Modifiers
+void DoublyLinkedList::remove(int d) {
+    DoublyNode* curNode = dummyHead->next;
+    while (curNode != dummyTail) {
+        if (curNode->data == d) {
+            curNode->prev->next = curNode->next;
+            curNode->next->prev = curNode->prev;
+            delete curNode;
+            return;
+        }
+        curNode = curNode->next;
+    }
+}
+
+void DoublyLinkedList::insertAfter(DoublyNode *target, int d) {
+    if (!target) return;
+    DoublyNode* newNode = new DoublyNode(d);
+    newNode->next = target->next;
+    newNode->prev = target;
+    target->next->prev = newNode;
+    target->next = newNode;
+}
+
+void DoublyLinkedList::removeAfter(DoublyNode *target) {
+    if (!target || target->next == dummyTail) return;
+    DoublyNode* tempNode = target->next;
+    target->next = tempNode->next;
+    tempNode->next->prev = target;
+    delete tempNode;
+}
+
+void DoublyLinkedList::clear() {
+    DoublyNode* curNode = dummyHead->next;
+    while (curNode != dummyTail) {
+        DoublyNode* nextNode = curNode->next;
+        delete curNode;
+        curNode = nextNode;
+    }
+    dummyHead->next = dummyTail;
+    dummyTail->prev = dummyHead;
+}
+
+void DoublyLinkedList::reverse() {
+    for (DoublyNode* curNode = dummyHead; curNode != nullptr;) {
+        DoublyNode* nextNode = curNode->next;
+        curNode->next = curNode->prev;
+        curNode->prev = nextNode;
+        curNode = nextNode;
+    }
+    DoublyNode* tempNode = dummyHead;
+    dummyHead = dummyTail;
+    dummyTail = tempNode;
 }

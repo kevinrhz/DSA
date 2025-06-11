@@ -12,6 +12,9 @@ int main() {
     singlyList.append(20);
     singlyList.append(30);
     singlyList.prepend(10);
+    // singlyList.remove(20);
+    // singlyList.insertAfter(singlyList.getHead(), 50);
+    // singlyList.removeAfter(singlyList.getHead());
 
     std::cout << "Current list: ";
     singlyList.printList();
@@ -42,6 +45,22 @@ int main() {
     Node* singlyTail = singlyList.getTail();
     std::cout << "(Node)Tail: " + std::to_string(singlyTail->data) << std::endl;
 
+    // contains()
+    bool singlyContainsTrue = singlyList.contains(30);
+    bool singlyContainsFalse = singlyList.contains(40);
+    std::cout << "Contains (true): " + std::to_string(singlyContainsTrue) << std::endl;
+    std::cout << "Contains (false): " + std::to_string(singlyContainsFalse) << std::endl;
+
+    // find()
+    Node* singlyFind = singlyList.find(30);
+    std::cout << "(Node)Find: " + std::to_string(singlyFind->data) << std::endl;
+
+    // reverse()
+    singlyList.reverse();
+    // singlyList.clear();
+    std::cout << "Reversed list: ";
+    singlyList.printList();
+
 
 
     std::cout << '\n' << std::string(31, '=') << '\n';
@@ -53,6 +72,9 @@ int main() {
     doublyList.append(200);
     doublyList.append(300);
     doublyList.prepend(100);
+    // doublyList.remove(200);
+    // doublyList.insertAfter(doublyList.getHead(), 500);
+    // doublyList.removeAfter(doublyList.getHead());
 
     std::cout << "Current list: ";
     doublyList.printList();
@@ -82,6 +104,22 @@ int main() {
     // getTail()
     DoublyNode* doublyTail = doublyList.getTail();
     std::cout << "(Node)Tail: " + std::to_string(doublyTail->data) << std::endl;
+
+    // contains()
+    bool doublyContainsTrue = doublyList.contains(300);
+    bool doublyContainsFalse = doublyList.contains(400);
+    std::cout << "Contains (true): " + std::to_string(doublyContainsTrue) << std::endl;
+    std::cout << "Contains (false): " + std::to_string(doublyContainsFalse) << std::endl;
+
+    // find()
+    DoublyNode* doublyFind = doublyList.find(300);
+    std::cout << "(Node)Find: " + std::to_string(doublyFind->data) << std::endl;
+
+    // reverse()
+    doublyList.reverse();
+    // doublyList.clear();
+    std::cout << "Reversed list: ";
+    doublyList.printList();
 
     return 0;
 }
