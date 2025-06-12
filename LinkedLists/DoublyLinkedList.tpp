@@ -79,13 +79,13 @@ namespace dsa {
     // Accessors
     template<typename T>
     T DoublyLinkedList<T>::front() const {
-        if (dummyHead->next == dummyTail) return T();
+        if (isEmpty()) throw std::runtime_error("List is empty. No front element.");
         return dummyHead->next->data;
     }
 
     template<typename T>
     T DoublyLinkedList<T>::back() const {
-        if (dummyTail->prev == dummyHead) return T();
+        if (isEmpty()) throw std::runtime_error("List is empty. No back element.");
         return dummyTail->prev->data;
     }
 
@@ -149,11 +149,13 @@ namespace dsa {
             }
             curNode = curNode->next;
         }
+        throw std::runtime_error("Element not found. Cannot remove.");
     }
 
     template<typename T>
     void DoublyLinkedList<T>::insertAfter(DoublyNode<T> *target, const T& d) {
-        if (!target) return;
+        if (!target) throw std::invalid_argument("Target node is null.");
+
         DoublyNode<T>* newNode = new DoublyNode<T>(d);
         newNode->next = target->next;
         newNode->prev = target;
@@ -163,7 +165,8 @@ namespace dsa {
 
     template<typename T>
     void DoublyLinkedList<T>::removeAfter(DoublyNode<T> *target) {
-        if (!target || target->next == dummyTail) return;
+        if (!target || !target->next) throw std::invalid_argument("Invalid target node.");
+
         DoublyNode<T>* tempNode = target->next;
         target->next = tempNode->next;
         tempNode->next->prev = target;

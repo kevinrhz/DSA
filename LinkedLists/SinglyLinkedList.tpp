@@ -59,12 +59,14 @@ namespace dsa {
 
     template<typename T>
     T SinglyLinkedList<T>::front() const {
-        return dummy->next ? dummy->next->data : T();
+        if (isEmpty()) throw std::runtime_error("List is empty. No front element.");
+        return dummy->next->data;
     }
 
     template<typename T>
     T SinglyLinkedList<T>::back() const {
-        return tail ? tail->data : T();
+        if (isEmpty()) throw std::runtime_error("List is empty. No back element.");
+        return tail->data;
     }
 
     template<typename T>
@@ -127,11 +129,12 @@ namespace dsa {
             prevNode = curNode;
             curNode = curNode->next;
         }
+        throw std::runtime_error("Element not found. Cannot remove.");
     }
 
     template<typename T>
     void SinglyLinkedList<T>::insertAfter(Node<T>* target, const T& d) {
-        if (!target) return;
+        if (!target) throw std::invalid_argument("Target node is null.");
 
         Node<T>* newNode = new Node<T>(d);
         newNode->next = target->next;
@@ -144,7 +147,7 @@ namespace dsa {
 
     template<typename T>
     void SinglyLinkedList<T>::removeAfter(Node<T>* target) {
-        if (!target || !target->next) return;
+        if (!target || !target->next) throw std::invalid_argument("Invalid target node.");
 
         Node<T>* tempNode = target->next;
         target->next = tempNode->next;

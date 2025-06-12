@@ -36,17 +36,17 @@ namespace dsa {
         T back() const;
         bool isEmpty() const;
         int size() const;
-        Node<T>* getHead() const;
-        Node<T>* getTail() const;
+        NodePtr getHead() const;
+        NodePtr getTail() const;
 
         // Search + Find
         bool contains(const T& d) const;
-        Node<T>* find(const T& d) const;
+        NodePtr find(const T& d) const;
 
         // Modifiers
         void remove(const T& d);
-        void insertAfter(Node<T>* target, const T& d);
-        void removeAfter(Node<T>* target);
+        void insertAfter(NodePtr target, const T& d);
+        void removeAfter(NodePtr target);
         void clear();
         void reverse();
     };
