@@ -3,49 +3,58 @@
 #ifndef DOUBLYLINKEDLIST_H
 #define DOUBLYLINKEDLIST_H
 
-class DoublyNode {
-public:
-    int data;
-    DoublyNode* next;
-    DoublyNode* prev;
+namespace dsa {
+    template<typename T>
+    class DoublyNode {
+    public:
+        T data;
+        DoublyNode* prev;
+        DoublyNode* next;
 
-    DoublyNode(int d);
-};
+        explicit DoublyNode(const T& d);
+    };
 
-class DoublyLinkedList {
-private:
-    DoublyNode* head;
-    DoublyNode* tail;
-    DoublyNode* dummyHead;
-    DoublyNode* dummyTail;
+    template<typename T>
+    class DoublyLinkedList {
+    private:
+        DoublyNode<T>* head;
+        DoublyNode<T>* tail;
+        DoublyNode<T>* dummyHead;
+        DoublyNode<T>* dummyTail;
 
-public:
-    DoublyLinkedList();
-    ~DoublyLinkedList();
+    public:
+        using NodePtr = DoublyNode<T>*;
 
-    // Core operations
-    void append(int d);
-    void prepend(int d);
-    void printList() const;
+        // Constructor & Destructor
+        DoublyLinkedList();
+        ~DoublyLinkedList();
 
-    // Accessors
-    int front() const;
-    int back() const;
-    bool isEmpty() const;
-    int size() const;
-    DoublyNode* getHead() const;
-    DoublyNode* getTail() const;
+        // Core Operations
+        void append(const T& d);
+        void prepend(const T& d);
+        void printList() const;
 
-    // Search + Find
-    bool contains(int d) const;
-    DoublyNode* find(int d) const;
+        // Accessors
+        T front() const;
+        T back() const;
+        bool isEmpty() const;
+        int size() const;
+        DoublyNode<T>* getHead() const;
+        DoublyNode<T>* getTail() const;
 
-    // Modifiers
-    void remove(int d);
-    void insertAfter(DoublyNode* target, int d);
-    void removeAfter(DoublyNode* target);
-    void clear();
-    void reverse();
-};
+        // Search
+        bool contains(const T& d) const;
+        DoublyNode<T>* find(const T& d) const;
+
+        // Modifiers
+        void remove(const T& d);
+        void insertAfter(DoublyNode<T>* target, const T& d);
+        void removeAfter(DoublyNode<T>* target);
+        void clear();
+        void reverse();
+    };
+}
+
+#include "DoublyLinkedList.tpp"
 
 #endif //DOUBLYLINKEDLIST_H

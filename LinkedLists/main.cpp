@@ -3,11 +3,13 @@
 #include "DoublyLinkedList.h"
 
 int main() {
+    using namespace dsa;
+
     std::cout << '\n' << std::string(31, '-') << '\n';
     std::cout << "--- SINGLY LINKED LIST TEST ---" << '\n';
 
-    SinglyLinkedList singlyList;
-    SinglyLinkedList singlyEmptyList;
+    SinglyLinkedList<int> singlyList;
+    SinglyLinkedList<int> singlyEmptyList;
 
     singlyList.append(20);
     singlyList.append(30);
@@ -38,11 +40,11 @@ int main() {
     std::cout << "Size: " + std::to_string(singlySize) << std::endl;
 
     // getHead()
-    Node* singlyHead = singlyList.getHead();
+    SinglyLinkedList<int>::NodePtr singlyHead = singlyList.getHead();
     std::cout << "(Node)Head: " + std::to_string(singlyHead->data) << std::endl;
 
     // getTail()
-    Node* singlyTail = singlyList.getTail();
+    SinglyLinkedList<int>::NodePtr singlyTail = singlyList.getTail();
     std::cout << "(Node)Tail: " + std::to_string(singlyTail->data) << std::endl;
 
     // contains()
@@ -52,7 +54,7 @@ int main() {
     std::cout << "Contains (false): " + std::to_string(singlyContainsFalse) << std::endl;
 
     // find()
-    Node* singlyFind = singlyList.find(30);
+    SinglyLinkedList<int>::NodePtr singlyFind = singlyList.find(30);
     std::cout << "(Node)Find: " + std::to_string(singlyFind->data) << std::endl;
 
     // reverse()
@@ -66,8 +68,8 @@ int main() {
     std::cout << '\n' << std::string(31, '=') << '\n';
     std::cout << "=== DOUBLY LINKED LIST TEST ===" << '\n';
 
-    DoublyLinkedList doublyList;
-    DoublyLinkedList doublyEmptyList;
+    DoublyLinkedList<int> doublyList;
+    DoublyLinkedList<int> doublyEmptyList;
 
     doublyList.append(200);
     doublyList.append(300);
@@ -98,11 +100,11 @@ int main() {
     std::cout << "Size: " + std::to_string(doublySize) << std::endl;
 
     // getHead()
-    DoublyNode* doublyHead = doublyList.getHead();
+    DoublyLinkedList<int>::NodePtr doublyHead = doublyList.getHead();
     std::cout << "(Node)Head: " + std::to_string(doublyHead->data) << std::endl;
 
     // getTail()
-    DoublyNode* doublyTail = doublyList.getTail();
+    DoublyLinkedList<int>::NodePtr doublyTail = doublyList.getTail();
     std::cout << "(Node)Tail: " + std::to_string(doublyTail->data) << std::endl;
 
     // contains()
@@ -112,7 +114,7 @@ int main() {
     std::cout << "Contains (false): " + std::to_string(doublyContainsFalse) << std::endl;
 
     // find()
-    DoublyNode* doublyFind = doublyList.find(300);
+    DoublyLinkedList<int>::NodePtr doublyFind = doublyList.find(300);
     std::cout << "(Node)Find: " + std::to_string(doublyFind->data) << std::endl;
 
     // reverse()
