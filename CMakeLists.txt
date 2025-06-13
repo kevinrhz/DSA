@@ -23,6 +23,17 @@ enable_testing()
 add_executable(runTests
         tests/test_SinglyLinkedList.cpp
         tests/test_DoublyLinkedList.cpp
+        tests/test_Stack.cpp
+        tests/test_Queue.cpp
+        tests/test_Deque.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
+
+add_executable(Stacks
+        Stacks/main.cpp
+)
+add_executable(Queues
+        Queues/main.cpp
+        Queues/Deque.h
+)

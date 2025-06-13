@@ -1,3 +1,4 @@
+#include "SinglyLinkedList.h"
 #include <iostream>
 
 namespace dsa {
@@ -130,6 +131,15 @@ namespace dsa {
             curNode = curNode->next;
         }
         throw std::runtime_error("Element not found. Cannot remove.");
+    }
+
+    template<typename T>
+    void SinglyLinkedList<T>::removeFront() {
+        if (isEmpty()) throw std::runtime_error("List is empty. Cannot remove front.");
+        Node<T>* tempNode = dummy->next;
+        dummy->next = tempNode->next;
+        if (!dummy->next) tail = nullptr;
+        delete tempNode;
     }
 
     template<typename T>

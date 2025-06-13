@@ -45,6 +45,7 @@ namespace dsa {
 
         // Modifiers
         void remove(const T& d);
+        void removeFront();
         void insertAfter(NodePtr target, const T& d);
         void removeAfter(NodePtr target);
         void clear();
@@ -53,5 +54,4 @@ namespace dsa {
 }
 
 #include "SinglyLinkedList.tpp"
-
 #endif // SINGLY_LINKED_LIST_H
