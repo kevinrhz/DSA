@@ -1,6 +1,9 @@
+#pragma once
+
+#include "../LinkedLists/SinglyLinkedList.h"
+
 #ifndef QUEUE_H
 #define QUEUE_H
-#include "../LinkedLists/SinglyLinkedList.h"
 
 namespace dsa {
     template<typename T>

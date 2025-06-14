@@ -26,6 +26,7 @@ add_executable(runTests
         tests/test_Stack.cpp
         tests/test_Queue.cpp
         tests/test_Deque.cpp
+        tests/test_HashTableChaining.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
@@ -37,3 +38,6 @@ add_executable(Queues
         Queues/main.cpp
         Queues/Deque.h
 )
+add_executable(HashTables HashTables/HashTableChaining.h
+        HashTables/Hash.h
+        HashTables/main.cpp)

@@ -1,6 +1,9 @@
+#pragma once
+
+#include "../LinkedLists/SinglyLinkedList.h"
+
 #ifndef STACK_H
 #define STACK_H
-#include "../LinkedLists/SinglyLinkedList.h"
 
 namespace dsa {
     template<typename T>

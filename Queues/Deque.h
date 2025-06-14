@@ -1,6 +1,9 @@
+#pragma once
+
+#include "../LinkedLists/DoublyLinkedList.h"
+
 #ifndef DSA_DEQUE_H
 #define DSA_DEQUE_H
-#include "../LinkedLists/DoublyLinkedList.h"
 
 namespace dsa {
     template<typename T>

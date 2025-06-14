@@ -1,5 +1,5 @@
-#include "SinglyLinkedList.h"
 #include <iostream>
+#include "SinglyLinkedList.h"
 
 namespace dsa {
     template<typename T>

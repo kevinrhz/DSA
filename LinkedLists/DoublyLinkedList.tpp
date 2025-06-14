@@ -1,5 +1,5 @@
-#include "DoublyLinkedList.h"
 #include <iostream>
+#include "DoublyLinkedList.h"
 
 namespace dsa {
     template<typename T>
