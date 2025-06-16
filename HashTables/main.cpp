@@ -1,6 +1,5 @@
 #include <iostream>
-#include "HashTableChaining.h"
-#include "Hash.h"
+#include "Chaining/HashTableChaining.h"
 
 using namespace dsa;
 

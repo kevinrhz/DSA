@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "../LinkedLists/DoublyLinkedList.h"
+#include "../../LinkedLists/DoublyLinkedList.h"
 
 #ifndef HASHTABLECHAINING_H
 #define HASHTABLECHAINING_H

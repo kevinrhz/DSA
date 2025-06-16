@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../HashTables/HashTableChaining.h"
+#include "HashTableChaining.h"
 
 using namespace dsa;
 
@@ -81,9 +81,4 @@ TEST(HashTableChaining, HandlesCollisions) {
     EXPECT_EQ(*table.get(1), "one");
     EXPECT_EQ(*table.get(9), "nine");
     EXPECT_EQ(table.size(), 2u);
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

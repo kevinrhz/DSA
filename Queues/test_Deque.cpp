@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../Queues/Deque.h"
+#include "Deque.h"
 
 using namespace dsa;
 

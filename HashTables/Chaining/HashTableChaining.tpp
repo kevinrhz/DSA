@@ -1,7 +1,7 @@
 #pragma once
 
 #include "HashTableChaining.h"
-#include "Hash.h"
+#include "../Hash.h"
 
 namespace dsa {
     // Get hash bucket index

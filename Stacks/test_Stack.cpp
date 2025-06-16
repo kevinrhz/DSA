@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../Stacks/Stack.h"
+#include "Stack.h"
 
 using namespace dsa;
 
