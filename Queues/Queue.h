@@ -1,11 +1,8 @@
 #pragma once
-
 #include "../LinkedLists/SinglyLinkedList.h"
 
-#ifndef QUEUE_H
-#define QUEUE_H
-
 namespace dsa {
+
     template<typename T>
     class Queue {
     private:
@@ -20,7 +17,7 @@ namespace dsa {
         int size() const;
         void clear ();
     };
+
 } // namespace dsa
 
 #include "Queue.tpp"
-#endif //QUEUE_H

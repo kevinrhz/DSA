@@ -1,9 +1,5 @@
 #pragma once
-
 #include "../LinkedLists/DoublyLinkedList.h"
-
-#ifndef DSA_DEQUE_H
-#define DSA_DEQUE_H
 
 namespace dsa {
     template<typename T>
@@ -25,4 +21,3 @@ namespace dsa {
 } // namespace dsa
 
 #include "Deque.tpp"
-#endif // DEQUE_H

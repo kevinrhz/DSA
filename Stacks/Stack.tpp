@@ -1,7 +1,5 @@
-#ifndef STACK_TPP
-#define STACK_TPP
-
 namespace dsa {
+
     template<typename T>
     void Stack<T>::push(const T& value) {
         list.prepend(value);
@@ -33,7 +31,5 @@ namespace dsa {
     void Stack<T>::clear() {
         list.clear();
     }
+
 } // namespace dsa
-
-#endif // STACK_TPP
-

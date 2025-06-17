@@ -1,5 +1,3 @@
-#pragma once
-
 #include "HashTableChaining.h"
 #include "../Hash.h"
 

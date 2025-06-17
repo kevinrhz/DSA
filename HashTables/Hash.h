@@ -1,9 +1,5 @@
 #pragma once
-
 #include <string>
-
-#ifndef HASH_H
-#define HASH_H
 
 namespace dsa {
     // Base case (compile time error)
@@ -35,5 +31,3 @@ namespace dsa {
 
 
 } // namespace dsa
-
-#endif //HASH_H

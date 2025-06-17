@@ -1,7 +1,5 @@
-#ifndef QUEUE_TPP
-#define QUEUE_TPP
-
 namespace dsa {
+
     template<typename T>
     void Queue<T>::enqueue(const T& value) {
         list.append(value);
@@ -37,7 +35,5 @@ namespace dsa {
     void Queue<T>::clear() {
         list.clear();
     }
+
 } // namespace dsa
-
-#endif // QUEUE_TPP
-

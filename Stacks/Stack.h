@@ -1,9 +1,5 @@
 #pragma once
-
 #include "../LinkedLists/SinglyLinkedList.h"
-
-#ifndef STACK_H
-#define STACK_H
 
 namespace dsa {
     template<typename T>
@@ -25,4 +21,3 @@ namespace dsa {
 } // namespace dsa
 
 #include "Stack.tpp"
-#endif //STACK_H

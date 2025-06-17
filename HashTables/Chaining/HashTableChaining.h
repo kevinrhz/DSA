@@ -1,10 +1,6 @@
 #pragma once
-
 #include <vector>
 #include "../../LinkedLists/DoublyLinkedList.h"
-
-#ifndef HASHTABLECHAINING_H
-#define HASHTABLECHAINING_H
 
 namespace dsa {
 
@@ -41,4 +37,3 @@ namespace dsa {
 } // namespace dsa
 
 #include "HashTableChaining.tpp"
-#endif //HASHTABLECHAINING_H

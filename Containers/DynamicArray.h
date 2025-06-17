@@ -1,10 +1,6 @@
 #pragma once
-
 #include <cstddef>
 #include <stdexcept>
-
-#ifndef DYNAMICARRAY_H
-#define DYNAMICARRAY_H
 
 namespace dsa {
 
@@ -57,4 +53,3 @@ namespace dsa {
 } // namespace dsa
 
 #include "DynamicArray.tpp"
-#endif // DYNAMICARRAY_H

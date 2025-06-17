@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef SINGLY_LINKED_LIST_H
-#define SINGLY_LINKED_LIST_H
-
 namespace dsa {
     template<typename T>
     class Node {
@@ -54,4 +51,3 @@ namespace dsa {
 }
 
 #include "SinglyLinkedList.tpp"
-#endif // SINGLY_LINKED_LIST_H

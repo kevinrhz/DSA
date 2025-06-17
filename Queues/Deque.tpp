@@ -1,6 +1,3 @@
-#ifndef DEQUE_TPP
-#define DEQUE_TPP
-
 namespace dsa {
     template<typename T>
     void Deque<T>::pushFront(const T& value) {
@@ -52,5 +49,3 @@ namespace dsa {
 
 
 } // namespace dsa
-
-#endif // DEQUE_TPP

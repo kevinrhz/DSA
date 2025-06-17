@@ -18,7 +18,11 @@ add_executable(Containers Containers/main.cpp)
 add_executable(LinkedLists LinkedLists/main.cpp)
 add_executable(Stacks Stacks/main.cpp)
 add_executable(Queues Queues/main.cpp Queues/Deque.h)
-add_executable(HashTables HashTables/main.cpp)
+add_executable(HashTables HashTables/main.cpp
+        HashTables/OpenAddressing/HashTableOpenAddressingBase.h
+        HashTables/OpenAddressing/LinearProbingHashTable.h
+        HashTables/OpenAddressing/QuadraticProbingHashTable.h
+        HashTables/OpenAddressing/DoubleHashingHashTable.h)
 
 
 # ========== Unit Test Runner ==========

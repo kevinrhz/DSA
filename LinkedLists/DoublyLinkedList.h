@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef DOUBLYLINKEDLIST_H
-#define DOUBLYLINKEDLIST_H
-
 namespace dsa {
     template<typename T>
     class DoublyNode {
@@ -56,5 +53,3 @@ namespace dsa {
 }
 
 #include "DoublyLinkedList.tpp"
-
-#endif //DOUBLYLINKEDLIST_H
