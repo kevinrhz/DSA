@@ -14,6 +14,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # ========== Executables per module ==========
+add_executable(Containers Containers/main.cpp)
 add_executable(LinkedLists LinkedLists/main.cpp)
 add_executable(Stacks Stacks/main.cpp)
 add_executable(Queues Queues/main.cpp Queues/Deque.h)
@@ -29,6 +30,7 @@ add_executable(runTests
         Queues/test_Queue.cpp
         Queues/test_Deque.cpp
         HashTables/Chaining/test_HashTableChaining.cpp
+        Containers/test_DynamicArray.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)

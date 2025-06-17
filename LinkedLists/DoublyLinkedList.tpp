@@ -2,6 +2,7 @@
 #include "DoublyLinkedList.h"
 
 namespace dsa {
+
     template<typename T>
     DoublyNode<T>::DoublyNode(const T& d) {
         data = d;
@@ -197,4 +198,5 @@ namespace dsa {
         dummyHead = dummyTail;
         dummyTail = tempNode;
     }
-}
+
+} // namespace dsa

@@ -1,9 +1,9 @@
 #pragma once
 
+#include <string>
+
 #ifndef HASH_H
 #define HASH_H
-
-#include <string>
 
 namespace dsa {
     // Base case (compile time error)

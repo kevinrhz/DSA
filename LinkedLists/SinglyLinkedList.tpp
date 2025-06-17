@@ -2,6 +2,7 @@
 #include "SinglyLinkedList.h"
 
 namespace dsa {
+
     template<typename T>
     Node<T>::Node(const T& d) {
         data = d;
@@ -195,4 +196,5 @@ namespace dsa {
         }
         dummy->next = prevNode;
     }
-}
+
+} // namespace dsa
