@@ -35,6 +35,7 @@ add_executable(runTests
         Queues/test_Deque.cpp
         HashTables/Chaining/test_HashTableChaining.cpp
         Containers/test_DynamicArray.cpp
+        HashTables/OpenAddressing/test_OpenAddressingShared.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)

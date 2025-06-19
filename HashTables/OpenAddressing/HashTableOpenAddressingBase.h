@@ -1,65 +1,83 @@
 #pragma once
-#include <cstddef>
-#include <vector>
-#include <stdexcept>
-#include <functional>
-#include "../Chaining/IHashTable.h"  // your existing interface
-#include "../Hash.h"
+
+#include <cstddef>      // for size_t
+#include <vector>       // for std::vector
+#include <stdexcept>    // for std::out_of_range
+#include <functional>   // for std::equal_to
+#include "../Hash.h"    // your hash functor(s)
 
 namespace dsa {
 
-//------------------------------------------------------------------------------
-// Base class for all open-addressing tables
-//------------------------------------------------------------------------------
+/**
+ * @brief Base class handling storage, resizing, and common ops for
+ *        open-addressing hash tables.
+ *
+ * Subclasses must implement probeIndex() to decide how collisions are probed.
+ */
 template<
     typename K,
     typename V,
     typename Hash     = Hash<K>,
     typename KeyEqual = std::equal_to<K>
 >
-class HashTableOpenAddressingBase : public IHashTable<K,V,Hash,KeyEqual> {
+class HashTableOpenAddressingBase {
 protected:
+    // ---- slot states ----
     enum class State { Empty, Occupied, Tombstone };
+
     struct Bucket {
-        K       key;
-        V       value;
-        State   state = State::Empty;
+        K     key;
+        V     value;
+        State state = State::Empty;
     };
 
-    std::vector<Bucket> table_;
-    size_t              elementCount_ = 0;
-    float               maxLoadFactor_;
-    Hash                hasher_;
-    KeyEqual            keyEqual_;
+    std::vector<Bucket> table_;              ///< underlying bucket array
+    size_t              elementCount_ = 0;   ///< number of live entries
+    float               maxLoadFactor_;      ///< when to trigger rehash
+    Hash                hasher_;             ///< primary hash function
+    KeyEqual            keyEqual_;           ///< key equality check
 
 public:
     /**
-     * @param capacity        starting # of slots
-     * @param maxLoadFactor   when (size_/capacity) > this, we rehash
+     * @param capacity        initial number of slots (default 16)
+     * @param maxLoadFactor  load factor threshold for rehash (default .5)
      */
     explicit
     HashTableOpenAddressingBase(size_t capacity = 16,
                                 float  maxLoadFactor = 0.5f);
 
-    bool   insert(const K& key, const V& value) override;
-    bool   remove(const K& key)                 override;
-    V*     find(const K& key)                   override;
-    size_t size() const                         override;
-    void   clear()                              override;
+    /// Insert key/value. Returns false if key already exists.
+    bool insert(const K& key, const V& value);
+
+    /// Remove key. Returns false if not found.
+    bool remove(const K& key);
+
+    /// Find by key. Returns pointer to value or nullptr if missing.
+    V* find(const K& key);
+    const V* find(const K& key) const;
+
+    /// Number of elements currently stored.
+    size_t size() const;
+
+    /// Remove all elements, reset to initial state.
+    void clear();
 
 protected:
     /**
-     * @brief Given a key and attempt count, return the next index.
-     * @param key     the lookup key
-     * @param attempt which probe (0,1,2,...)
+     * @brief Compute the next index given a key & attempt number.
+     * @param key     the key being probed
+     * @param attempt 0-based probe count
+     * @return index in [0..table_.size()) to inspect next
      */
     virtual size_t probeIndex(const K& key, size_t attempt) const = 0;
 
-    /** @brief Expand & re-insert all Occupied entries into a bigger table. */
+    /// Grow or shrink the underlying vector and re-insert occupied entries.
     void rehash(size_t newCapacity);
 
-    /** @brief Compute next capacity (e.g. double current size) */
+    /// Helper to pick the next capacity (e.g., double current).
     size_t nextCapacity() const;
 };
 
 } // namespace dsa
+
+#include "HashTableOpenAddressingBase.tpp"

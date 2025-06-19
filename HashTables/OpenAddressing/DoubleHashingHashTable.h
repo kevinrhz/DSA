@@ -23,7 +23,7 @@ namespace dsa {
         size_t probeIndex(const K& key, size_t attempt) const override {
             size_t cap = this->table_.size();
             size_t h1  = this->hasher_(key) % cap;
-            size_t h2  = secondaryHash(this->hasher_(key) >> 1, cap);
+            size_t h2  = secondaryHash(this->hasher_(key) >> 5, cap);
             return (h1 + attempt * h2) % cap;
         }
     };

@@ -24,7 +24,7 @@ namespace dsa {
         size_t operator()(const std::string& key) const {
             size_t hash = 0;
             for (char c : key)
-                hash = 31 * hash + c;
+                hash = hash * 31 + static_cast<unsigned char>(c);
             return hash;
         }
     };
