@@ -16,13 +16,10 @@ enable_testing()
 # ========== Executables per module ==========
 add_executable(Containers Containers/main.cpp)
 add_executable(LinkedLists LinkedLists/main.cpp)
+add_executable(Trees Trees/main.cpp)
 add_executable(Stacks Stacks/main.cpp)
 add_executable(Queues Queues/main.cpp Queues/Deque.h)
-add_executable(HashTables HashTables/main.cpp
-        HashTables/OpenAddressing/HashTableOpenAddressingBase.h
-        HashTables/OpenAddressing/LinearProbingHashTable.h
-        HashTables/OpenAddressing/QuadraticProbingHashTable.h
-        HashTables/OpenAddressing/DoubleHashingHashTable.h)
+add_executable(HashTables HashTables/main.cpp)
 
 
 # ========== Unit Test Runner ==========
@@ -36,6 +33,7 @@ add_executable(runTests
         HashTables/Chaining/test_HashTableChaining.cpp
         Containers/test_DynamicArray.cpp
         HashTables/OpenAddressing/test_OpenAddressingShared.cpp
+        Trees/BST/test_BinarySearchTree.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
