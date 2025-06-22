@@ -34,6 +34,8 @@ add_executable(runTests
         Containers/test_DynamicArray.cpp
         HashTables/OpenAddressing/test_OpenAddressingShared.cpp
         Trees/BST/test_BinarySearchTree.cpp
+        Trees/Trie/Trie.cpp
+        Trees/Trie/test_Trie.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
