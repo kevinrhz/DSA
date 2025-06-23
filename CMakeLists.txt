@@ -36,6 +36,7 @@ add_executable(runTests
         Trees/BST/test_BinarySearchTree.cpp
         Trees/Trie/Trie.cpp
         Trees/Trie/test_Trie.cpp
+        Trees/AVL/test_AVLTree.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
