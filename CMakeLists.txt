@@ -37,6 +37,7 @@ add_executable(runTests
         Trees/Trie/Trie.cpp
         Trees/Trie/test_Trie.cpp
         Trees/AVL/test_AVLTree.cpp
+        Trees/RedBlack/test_RedBlackTree.cpp
 )
 target_link_libraries(runTests gtest gtest_main)
 add_test(NAME runTests COMMAND runTests)
