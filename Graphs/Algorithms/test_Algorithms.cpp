@@ -2,6 +2,7 @@
 #include "../Structures/Graph.h"
 #include "BFS.h"
 #include "DFS.h"
+#include "Dijkstra.h"
 
 using namespace dsa;
 
@@ -128,4 +129,21 @@ TEST(DFSIterativeTest, ComplexGraph) {
     EXPECT_EQ(result.size(), 5);
     EXPECT_TRUE(std::find(result.begin(), result.end(), 4) != result.end());
     EXPECT_TRUE(std::find(result.begin(), result.end(), 5) != result.end());
+}
+
+TEST(DijkstraTest, WeightedUndirectedGraph) {
+    Graph<std::string> graph;
+    graph.makeUndirectedEdge("A", "B", 1);
+    graph.makeUndirectedEdge("B", "C", 2);
+    graph.makeUndirectedEdge("A", "C", 5);
+
+    auto [distances, previous] = dijkstra(graph, std::string("A"));
+
+    EXPECT_EQ(distances["A"], 0);
+    EXPECT_EQ(distances["B"], 1);
+    EXPECT_EQ(distances["C"], 3);  // A -> B -> C is shorter than A -> C
+
+    EXPECT_EQ(previous["A"], "");  // Start node has no previous
+    EXPECT_EQ(previous["B"], "A");
+    EXPECT_EQ(previous["C"], "B");
 }
